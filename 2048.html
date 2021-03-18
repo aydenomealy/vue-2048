@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2048</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script type="text/javascript" src="vue2.js"></script>
+
+    <style>
+        td {
+            width: 100px;
+            height: 100px;
+        }
+
+        table {
+            border-spacing: 5px;
+            border-collapse: separate;
+        }
+    </style>
+
+</head>
+<body>
+
+<h1 class="center">2048</h1>
+<div id="vue-app">
+    <div class="center">
+        <span>High Score: {{ high_score }}</span>
+        <span>Current Score: {{ score }}</span>
+    </div>
+    <div class="row" id="row">
+        <div class="col s4 offset-s4">
+            <div class="container">
+                <table class="centered">
+                    <tr>
+                        <td v-bind:style="{background: cell_0.cs}">{{ cell_0.num }}</td>
+                        <td v-bind:style="{background: cell_1.cs}">{{ cell_1.num }}</td>
+                        <td v-bind:style="{background: cell_2.cs}">{{ cell_2.num }}</td>
+                        <td v-bind:style="{background: cell_3.cs}">{{ cell_3.num }}</td>
+                    </tr>
+                    <tr>
+                        <td v-bind:style="{background: cell_4.cs}">{{ cell_4.num }}</td>
+                        <td v-bind:style="{background: cell_5.cs}">{{ cell_5.num }}</td>
+                        <td v-bind:style="{background: cell_6.cs}">{{ cell_6.num }}</td>
+                        <td v-bind:style="{background: cell_7.cs}">{{ cell_7.num }}</td>
+                    </tr>
+                    <tr>
+                        <td v-bind:style="{background: cell_8.cs}">{{ cell_8.num }}</td>
+                        <td v-bind:style="{background: cell_9.cs}">{{ cell_9.num }}</td>
+                        <td v-bind:style="{background: cell_10.cs}">{{ cell_10.num }}</td>
+                        <td v-bind:style="{background: cell_11.cs}">{{ cell_11.num }}</td>
+                    </tr>
+                    <tr>
+                        <td v-bind:style="{background: cell_12.cs}">{{ cell_12.num }}</td>
+                        <td v-bind:style="{background: cell_13.cs}">{{ cell_13.num }}</td>
+                        <td v-bind:style="{background: cell_14.cs}">{{ cell_14.num }}</td>
+                        <td v-bind:style="{background: cell_15.cs}">{{ cell_15.num }}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="add_score" style="display: none">
+    <h3 class="center">Game Over</h3>
+    <form class="center" id="form_score">
+        <input type="text" name="player_name" placeholder="Your Name" style="width: 200px">
+        <button class="btn">Submit</button>
+    </form>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+<script>
+    const firebaseConfig = {
+        apiKey: "AIzaSyAefOwlfBJOQxKEZ4X6zQOtnaQ_mPKWDMc",
+        authDomain: "vue-aea05.firebaseapp.com",
+        projectId: "vue-aea05",
+        storageBucket: "vue-aea05.appspot.com",
+        messagingSenderId: "450099666646",
+        appId: "1:450099666646:web:b0bf70878f07cc45bd7377"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script type="text/javascript" src="app.js"></script>
+</body>
+</html>
